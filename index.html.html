@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Favourite Sport — Grade 4</title>
+<style>
+:root{--ink:#18304a;--muted:#60748a;--blue:#168bd2;--line:#dceaf3;--shadow:0 16px 45px #17446618}
+*{box-sizing:border-box}body{margin:0;background:#f2f8fb;color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:5;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topin{max-width:1180px;margin:auto;padding:12px 22px;display:flex;align-items:center;gap:14px}.logo{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,#168bd2,#66d7ca);display:grid;place-items:center;color:white;font-size:24px}
+.brand{flex:1}.brand b{display:block;font-size:15px}.brand small{color:var(--muted)}
+.tool,.pill,.navbtn,.primary,.secondary,.choice{border:0;border-radius:14px;padding:10px 14px;font-weight:750;color:var(--ink);background:#edf5fa;transition:.2s}
+.tool:hover,.navbtn:hover,.secondary:hover,.choice:hover{transform:translateY(-2px);box-shadow:0 7px 16px #18304a18}
+.tool{white-space:nowrap}.primary{background:var(--blue);color:white;box-shadow:0 8px 18px #168bd233}.primary:hover{background:#0879bf;transform:translateY(-2px)}
+.secondary{background:white;border:1px solid var(--line)}.wrap{max-width:1180px;margin:auto;padding:28px 22px 60px}
+.hero{position:relative;overflow:hidden;border-radius:30px;padding:42px clamp(22px,5vw,58px);background:linear-gradient(116deg,#e0f6ff,#fff9df 66%,#ffe8df);box-shadow:var(--shadow);min-height:270px}
+.hero:before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:#ffffff70;right:-50px;top:-90px}
+.hero-content{position:relative;z-index:1;max-width:700px}.eyebrow{display:inline-flex;padding:6px 12px;background:white;border-radius:30px;font-size:13px;font-weight:800;color:#2179a8}
+h1{font-size:clamp(36px,6vw,64px);line-height:1.02;letter-spacing:-2px;margin:18px 0 12px;color:#087ebc}
+.hero p{font-size:18px;color:#405a70;margin:0 0 22px}.ball{position:absolute;right:8%;top:54px;font-size:clamp(86px,14vw,150px);animation:bob 3s ease-in-out infinite;filter:drop-shadow(0 14px 10px #17446620)}
+@keyframes bob{50%{transform:translateY(-14px) rotate(7deg)}}
+.meta,.actions,.options,.wordbank{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.pill{background:#ffffffc9;padding:7px 12px;font-size:13px}
+.progressrow{display:flex;align-items:center;gap:12px;margin:24px 0 13px}.progressbar{height:9px;background:#dceaf3;border-radius:20px;flex:1;overflow:hidden}.progressbar span{display:block;height:100%;width:11%;background:linear-gradient(90deg,#168bd2,#56d3bb);border-radius:20px;transition:.35s}.progresslabel,.small{color:var(--muted);font-size:13px;font-weight:700}
+.stages{display:flex;gap:8px;overflow:auto;padding:3px 0 12px}.stagebtn{flex:0 0 auto;border:1px solid var(--line);background:white;color:var(--muted);border-radius:30px;padding:8px 13px;font-size:13px;font-weight:750}
+.stagebtn.active{background:var(--ink);border-color:var(--ink);color:white}.stagebtn.done{background:#e4faf3;border-color:#b7efdb;color:#158363}
+.card{background:white;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,36px);box-shadow:var(--shadow);min-height:380px}
+.screen{display:none;animation:appear .35s ease}.screen.active{display:block}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.kicker{color:#1588bd;text-transform:uppercase;letter-spacing:1px;font-size:12px;font-weight:900}
+h2{font-size:clamp(25px,4vw,38px);line-height:1.15;letter-spacing:-.8px;margin:8px 0 12px}.lead{font-size:17px;color:var(--muted);max-width:780px;margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tile{background:#f5fafe;border:1px solid var(--line);border-radius:19px;padding:18px}.tile h3{margin:5px 0 7px;font-size:17px}.tile p{margin:0;color:var(--muted)}
+.emoji{font-size:30px}.notice{padding:14px 17px;background:#fff8d9;border-left:5px solid #ffdc65;border-radius:13px;margin:16px 0}
+.uz{display:block;color:#718399;font-size:13px;font-weight:500;margin-top:4px}
+.prompt{background:#e9f8ff;border:1px solid #cbeafb;border-radius:18px;padding:18px;font-size:19px;font-weight:800}
+.choice{background:white;border:1px solid var(--line);padding:10px 15px}.choice.correct{background:#e4faf3;border-color:#61d3ae;color:#167855}.choice.wrong{background:#fff0f1;border-color:#ff9ca5;color:#bf4553}
+.feedback{min-height:28px;margin:10px 0;font-weight:800}.good{color:#16815d}.bad{color:#c34a55}
+.word{border-radius:30px;padding:7px 12px;background:#f0f4ff;color:#46539b;font-weight:800}
+.blanks{font-size:20px;line-height:2.05;background:#fffaf0;border:1px solid #f5e8ba;border-radius:18px;padding:20px}
+.blank{display:inline-block;min-width:128px;border:0;border-bottom:2px dashed #e7a92e;background:transparent;text-align:center;font-weight:800;color:#087ebc;padding:2px 4px}
+.flashgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0}
+.flash{min-height:120px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#fff,#f0faff);display:grid;place-items:center;text-align:center;padding:12px;transition:.25s}
+.flash:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.flash .front{font-size:34px}.flash .back{display:none;font-weight:800}.flash.flipped .front{display:none}.flash.flipped .back{display:block}
+.posterform{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;font-size:13px;font-weight:800;margin:0 0 5px}
+.field input,.field select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:white;color:var(--ink)}
+.poster{position:relative;background:linear-gradient(145deg,#e6f8ff,#fff6d9);border:3px dashed #63c9db;border-radius:20px;padding:23px;margin-top:16px;min-height:155px}
+.poster h3{font-size:25px;color:#087ebc;margin:0 0 8px}.poster p{margin:5px 0}.poster .sportbig{position:absolute;right:22px;top:17px;font-size:48px}
+.reflectgrid{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:10px;margin:18px 0}
+.refbtn{height:100%;min-height:175px;border:2px solid transparent;background:#f5fafe;border-radius:18px;padding:14px 10px;font-weight:800;cursor:pointer;transition:.2s;color:var(--ink)}
+.refbtn span{font-size:32px;display:block;margin-bottom:6px}.refbtn:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.refbtn.selected{border-color:#168bd2;background:#e7f7ff}
+.refbtn small{display:block;margin-top:8px;font-weight:500;color:var(--muted);line-height:1.35}.vote-count{display:block;margin-top:9px;color:#087ebc!important;font-size:13px!important;font-weight:800!important}
+.results{display:grid;gap:10px;margin:18px 0}.resultrow{display:grid;grid-template-columns:minmax(150px,260px) 1fr 58px;gap:10px;align-items:center;font-size:13px;font-weight:750}
+.resultbar{height:13px;background:#e8eff4;border-radius:20px;overflow:hidden}.resultbar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#168bd2,#56d3bb);border-radius:20px;transition:width .4s}
+.resultpct{text-align:right;color:#087ebc;font-size:15px}.totalvotes{font-size:14px;color:var(--muted);font-weight:750}
+.bottomnav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:16px 2px}footer{margin-top:30px;color:var(--muted);font-size:12px}
+.drawer{position:fixed;inset:0;z-index:20;display:none;background:#10283a88;justify-content:flex-end}.drawer.open{display:flex}
+.panel{height:100%;width:min(680px,100%);overflow:auto;background:white;padding:25px;box-shadow:-20px 0 60px #10283a30;animation:slide .25s ease}
+@keyframes slide{from{transform:translateX(40px);opacity:.6}to{transform:none;opacity:1}}
+.panelhead{display:flex;align-items:center;justify-content:space-between}.close{border:0;background:#eff4f7;border-radius:50%;width:40px;height:40px;font-size:20px}
+.plan{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:14px}.plan th,.plan td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--line)}.plan th{color:#087ebc;background:#f2f9fc}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:30;background:var(--ink);color:white;padding:11px 18px;border-radius:30px;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+a{color:#087ebc}
+@media(max-width:760px){.grid,.two{grid-template-columns:1fr}.ball{right:1%;top:15px;opacity:.22}.hero{padding:30px 22px}.flashgrid{grid-template-columns:repeat(2,1fr)}.topin{padding:10px 12px}.tool{padding:9px 10px;font-size:12px}.posterform{grid-template-columns:1fr}.reflectgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.card{min-height:440px}}
+@media print{body{background:white}.top,.hero,.progressrow,.stages,.card,.bottomnav,footer,.drawer,.no-print{display:none!important}body.printing #posterToPrint{display:block!important;margin:0 auto;width:180mm;min-height:100mm}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="logo">🏐</div><div class="brand"><b>Open Lesson · English · Grade 4</b><small>Lesson 7 · Project</small></div>
+  <button class="tool" id="planBtn">📋 Teacher plan</button>
+  <button class="tool" id="timerBtn" title="Start timer">⏱ <span id="timerText">45:00</span></button>
+  <button class="tool" id="fullBtn" title="Full screen">⛶</button>
+</div></header>
+
+<main class="wrap">
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">🌟 TODAY’S PROJECT · GRADE 4</span>
+    <h1>My Favourite Sport</h1>
+    <p>Read about sport, speak English and create your own mini-poster.</p>
+    <div class="meta"><span class="pill">⏰ 45 minutes</span><span class="pill">🤝 Teamwork</span><span class="pill">🎯 Read · Speak · Write</span></div>
+    <div class="actions" style="margin-top:20px"><button class="primary" onclick="go(0)">Start the lesson →</button><span class="small">The teacher plan is available at any time.</span></div>
+  </div><div class="ball" aria-hidden="true">🏐</div>
+</section>
+
+<div class="progressrow"><div class="progressbar"><span id="progress"></span></div><div class="progresslabel" id="progressLabel">Stage 1 of 9</div></div>
+<nav class="stages" id="stageNav" aria-label="Lesson stages"></nav>
+
+<section class="card">
+<article class="screen active" data-title="Welcome" data-time="3 min">
+  <div class="kicker">01 · Welcome · 3 minutes</div><h2>Hello, sports team! 👋</h2>
+  <p class="lead">Say hello to your partner, get ready to move and get ready to speak English.</p>
+  <div class="grid">
+    <div class="tile"><div class="emoji">🙋</div><h3>Say hello</h3><p><b>Good morning, everyone!</b><br>How are you today?</p></div>
+    <div class="tile"><div class="emoji">💪</div><h3>Warm-up</h3><p>Show these actions: run, jump, swim. Let the class guess!</p><span class="uz">Ҳаракатлар билан кўрсатинг, синф топсин.</span></div>
+    <div class="tile"><div class="emoji">🎤</div><h3>Quick answer</h3><p>Do you like sport?<br><b>Yes, I do! / Not really.</b></p></div>
+  </div>
+  <div class="notice"><b>Our class rules:</b> listen to each other, support your team and don’t be afraid to try speaking English.<span class="uz">Бир-биримизни тинглаймиз, жамоани қўллаб-қувватлаймиз ва инглизча гапиришдан қўрқмаймиз.</span></div>
+</article>
+
+<article class="screen" data-title="Guess the sport" data-time="4 min">
+  <div class="kicker">02 · Warm-up · 4 minutes</div><h2>What sport is it? 🕵️</h2>
+  <p class="lead">Read the riddle, name the sport and explain your answer.</p>
+  <div class="prompt">I use a ball. I hit it over a net. There are six players in my team. What sport am I?</div>
+  <div class="options" id="riddleOptions"></div><div class="feedback" id="riddleFeedback" aria-live="polite"></div>
+  <div class="grid two">
+    <div class="tile"><div class="emoji">💡</div><h3>Think</h3><p>Which words helped you find the answer?</p><span class="uz">Жавобни топишга қайси сўзлар ёрдам берди?</span></div>
+    <div class="tile"><div class="emoji">🗣️</div><h3>Say a full sentence</h3><p><b>It is volleyball!</b></p></div>
+  </div>
+</article>
+
+<article class="screen" data-title="Lesson goals" data-time="2 min">
+  <div class="kicker">03 · Learning goals · 2 minutes</div><h2>What will we learn today?</h2>
+  <p class="lead">By the end of the lesson, you will talk about your favourite sport and present a mini-poster.</p>
+  <div class="grid">
+    <div class="tile"><div class="emoji">📖</div><h3>I can read</h3><p>I can understand a short text about sport and find information.</p></div>
+    <div class="tile"><div class="emoji">💬</div><h3>I can speak</h3><p>I can answer questions about my favourite sport.</p></div>
+    <div class="tile"><div class="emoji">✍️</div><h3>I can write</h3><p>I can write a few short sentences about my favourite sport.</p></div>
+  </div>
+  <div class="notice"><b>Success criteria:</b> I choose the correct words; answer at least two questions; write 3–4 clear sentences.<span class="uz">Муваффақият мезонлари: тўғри сўзларни танлайман, камида 2 саволга жавоб бераман ва 3–4 та тушунарли гап ёзаман.</span></div>
+</article>
+
+<article class="screen" data-title="New words" data-time="6 min">
+  <div class="kicker">04 · Vocabulary · 6 minutes</div><h2>Flip a card and say the word! 🃏</h2>
+  <p class="lead">Click a card to see the word. Read it aloud and make a gesture.</p>
+  <div class="flashgrid">
+    <button class="flash"><span class="front">🏅</span><span class="back">sport<br><small>спорт</small></span></button>
+    <button class="flash"><span class="front">👧👦</span><span class="back">players<br><small>ўйинчилар</small></span></button>
+    <button class="flash"><span class="front">🤝</span><span class="back">team<br><small>жамоа</small></span></button>
+    <button class="flash"><span class="front">🥅</span><span class="back">net<br><small>тўр</small></span></button>
+    <button class="flash"><span class="front">🎉</span><span class="back">Sports Day<br><small>спорт байрами</small></span></button>
+  </div>
+  <div class="notice"><b>Echo game:</b> repeat the word quietly, loudly or in a whisper—just like your teacher.<span class="uz">«Акс-садо» ўйини: ўқитувчи сўзни қандай айтса, шундай такрорланг.</span></div>
+  <div class="actions"><button class="secondary" id="mixWords">🔀 Close all cards</button><span class="small">players = ўйинчилар · team = жамоа · net = тўр</span></div>
+</article>
+
+<article class="screen" data-title="Read and complete" data-time="7 min">
+  <div class="kicker">05 · Read and complete · 7 minutes</div><h2>Help Kanat finish his story! 📘</h2>
+  <p class="lead">Choose the right word for each gap. Then read the whole text aloud.</p>
+  <div class="wordbank"><span class="word">players</span><span class="word">team</span><span class="word">net</span><span class="word">Day</span></div>
+  <div class="blanks">
+    My favourite sport is <b>volleyball</b>. There are six
+    <select class="blank answer" data-answer="players"><option value="">— choose —</option><option>players</option><option>team</option><option>net</option><option>Day</option></select>
+    in a volleyball
+    <select class="blank answer" data-answer="team"><option value="">— choose —</option><option>players</option><option>team</option><option>net</option><option>Day</option></select>.
+    We can play volleyball with a special ball and a
+    <select class="blank answer" data-answer="net"><option value="">— choose —</option><option>players</option><option>team</option><option>net</option><option>Day</option></select>.
+    It’s Sports
+    <select class="blank answer" data-answer="Day"><option value="">— choose —</option><option>players</option><option>team</option><option>net</option><option>Day</option></select>
+    and I’m playing volleyball! We’re winning! Hooray!
+  </div>
+  <div class="actions"><button class="primary" id="checkText">Check answers</button><button class="secondary" id="resetText">Try again</button></div>
+  <div class="feedback" id="textFeedback" aria-live="polite"></div>
+</article>
+
+<article class="screen" data-title="Pair talk" data-time="6 min">
+  <div class="kicker">06 · Pair talk · 6 minutes</div><h2>Ask your partner! 🎙️</h2>
+  <p class="lead">Take turns asking and answering. Then swap roles.</p>
+  <div class="grid two">
+    <div class="tile"><div class="emoji">❓</div><h3>What’s your favourite sport?</h3><p>My favourite sport is <b>…</b>.</p></div>
+    <div class="tile"><div class="emoji">👥</div><h3>How many players are there in a team?</h3><p>There are <b>… players</b> in a team.</p></div>
+    <div class="tile"><div class="emoji">🧰</div><h3>Name two things you can play your favourite sport with.</h3><p>You need a <b>…</b> and a <b>…</b>.</p></div>
+    <div class="tile"><div class="emoji">🌟</div><h3>Bonus question</h3><p>Why do you like it?<br><b>Because it is fun!</b></p></div>
+  </div>
+  <div class="actions"><button class="primary" id="pairPoint">⭐ We spoke English!</button><span class="pill" id="pairScore">Team stars: 0</span></div>
+  <div class="notice">Need help? Use the word cards or the sentence starters above.<span class="uz">Қийналсангиз, сўз карточкалари ёки тайёр гап бошланишларидан фойдаланинг.</span></div>
+</article>
+
+<article class="screen" data-title="Movement break" data-time="2 min">
+  <div class="kicker">07 · Move and say · 2 minutes</div><h2>Coach says… 🏃</h2>
+  <p class="lead">Stand by your desk. Move only when the instruction starts with <b>“Coach says…”</b></p>
+  <div class="prompt" style="text-align:center" id="coachPrompt">Coach says: jump two times! 🐇</div>
+  <div class="actions" style="justify-content:center"><button class="primary" id="nextCoach">Next instruction →</button></div>
+  <div class="grid two" style="margin-top:20px">
+    <div class="tile" style="text-align:center"><div class="emoji">🧍</div><h3>Stand up!</h3><p>Listen carefully. This is not a “Coach says” instruction.</p></div>
+    <div class="tile" style="text-align:center"><div class="emoji">👏</div><h3>Coach says: clap!</h3><p>Follow the coach’s instruction.</p></div>
+  </div>
+  <div class="small" style="text-align:center">Move safely. Don’t run between the desks.</div>
+</article>
+
+<article class="screen" data-title="My poster" data-time="10 min">
+  <div class="kicker">08 · Project · 10 minutes</div><h2>Create “My Favourite Sport” 🖍️</h2>
+  <p class="lead">Fill in the details, make your poster and present it to the class.</p>
+  <div class="posterform">
+    <div class="field"><label for="studentName">My name</label><input id="studentName" placeholder="For example, Amina"></div>
+    <div class="field"><label for="sportName">My favourite sport</label><select id="sportName"><option>volleyball</option><option>football</option><option>basketball</option><option>tennis</option><option>swimming</option><option>hockey</option></select></div>
+    <div class="field"><label for="playerCount">Players in a team</label><input id="playerCount" placeholder="six / eleven / two"></div>
+    <div class="field"><label for="equipment">Equipment (ball, net…)</label><input id="equipment" placeholder="a ball and a net"></div>
+  </div>
+  <div class="poster" id="posterToPrint"><span class="sportbig" id="sportEmoji">🏐</span>
+    <h3>My Favourite Sport</h3><p id="posterBy">by __________</p>
+    <p>My favourite sport is <b id="posterSport">volleyball</b>.</p>
+    <p>There are <b id="posterPlayers">six</b> players in a team.</p>
+    <p>I need <b id="posterGear">a ball and a net</b>.</p><p>I like it because it is fun! 🌟</p>
+  </div>
+  <div class="actions no-print"><button class="secondary" id="printPoster">🖨️ Print poster</button><button class="primary" id="presentPoster">🎤 I’m ready to present!</button><span class="small">You can also draw your poster on paper and copy these sentences.</span></div>
+</article>
+
+<article class="screen" data-title="Reflection and homework" data-time="5 min">
+  <div class="kicker">09 · Reflection & homework · 5 minutes</div><h2>How well did you understand today’s lesson? 🌈</h2>
+  <p class="lead">Choose one statement that describes you. Each click adds one class vote; the percentages update automatically.</p>
+  <p class="small">Each student should vote once. Percentages are calculated from the total votes.</p>
+  <div class="reflectgrid">
+    <button class="refbtn" data-vote="0"><span>🤩</span>I understood everything and can speak on my own.<small>Ҳаммасини тушундим, ўзим гапира оламан.</small><small class="vote-count">0 votes</small></button>
+    <button class="refbtn" data-vote="1"><span>😊</span>I understood well; I need a little more practice.<small>Яхши тушундим, яна озгина машқ қиламан.</small><small class="vote-count">0 votes</small></button>
+    <button class="refbtn" data-vote="2"><span>🙂</span>I understood some parts; I need a little help.<small>Қисман тушундим, бироз ёрдам керак.</small><small class="vote-count">0 votes</small></button>
+    <button class="refbtn" data-vote="3"><span>😕</span>I need more practice.<small>Кўпроқ машқ қилишни хоҳлайман.</small><small class="vote-count">0 votes</small></button>
+    <button class="refbtn" data-vote="4"><span>🙋</span>I’m still finding it difficult. Please explain again.<small>Ҳали қийналяпман, илтимос қайта тушунтиринг.</small><small class="vote-count">0 votes</small></button>
+  </div>
+  <h3>Class results</h3><div class="totalvotes" id="totalVotes">Total votes: 0</div><div class="results" id="results"></div>
+  <div class="actions"><button class="secondary" id="resetVotes">Reset votes</button></div>
+  <div class="notice"><b>Homework:</b> Complete “My Favourite Sport” in your Activity Book, page 33. Write 3–4 sentences and get ready to present.<span class="uz">Уй вазифаси: Activity Book, 33-бетдаги лойиҳани бажаринг. 3–4 та гап ёзинг ва тақдимотга тайёрланинг.</span></div>
+</article>
+</section>
+
+<div class="bottomnav"><button class="secondary navbtn" id="prevBtn">← Previous</button><span class="small" id="stageTime">Welcome · 3 min</span><button class="primary navbtn" id="nextBtn">Next →</button></div>
+<footer><b>Curriculum link.</b> The lesson practises understanding a short text, answering questions and writing a few short sentences with support. The teacher plan includes lesson goals, task sequence, assessment and learner support.
+<br><a href="https://www.adilet.zan.kz/rus/docs/V2200030654" target="_blank" rel="noopener">Kazakhstan Model Curriculum · Adilet</a> ·
+<a href="https://www.uba.edu.kz/storage/app/media/Metod%20usynymdama/2022/%20%D0%9F%D1%80%D0%B5%D0%B4%D0%BC%D0%B5%D1%82%D1%8B%20%D0%A0%D0%A3%D0%A1%20%D0%BD%D0%B0%2026.10.21.pdf" target="_blank" rel="noopener">Lesson planning guidance · National Academy of Education</a></footer>
+</main>
+
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Teacher lesson plan"><aside class="panel">
+  <div class="panelhead"><div><div class="kicker">Ўқитувчи учун · 45 дақиқа</div><h2 style="margin:4px 0">Қисқа муддатли режа</h2></div><button class="close" id="closePlan">×</button></div>
+  <p class="lead">Мавзу: <b>My Favourite Sport</b> · 4-синф · Lesson 7: Project</p>
+  <h3>Ўқув мақсадлари</h3>
+  <ul><li><b>4.3.2.1</b> — таниш мавзулардаги қисқа, содда матнларни тушуниш.</li><li><b>4.2.4.1</b> — умумий ва ўқув мавзуларидаги саволларга жавоб бериш.</li><li><b>4.4.4.1</b> — ёрдам билан шахсий маълумот бериш учун қисқа гаплар кетма-кетлигини ёзиш.</li></ul>
+  <h3>Дарснинг бориши</h3>
+  <table class="plan"><thead><tr><th>Вақт</th><th>Босқич ва фаолият</th><th>Форматив баҳолаш</th></tr></thead><tbody>
+    <tr><td>3 дақ.</td><td>Саломлашиш, дарсга тайёргарлик ва ҳаракатли қиздириш машқи.</td><td>Оғзаки рағбат, дарсга тайёрлигини кузатиш.</td></tr>
+    <tr><td>4 дақ.</td><td>Топишмоқдаги калит сўзлар орқали volleyball спорт турини топиш.</td><td>Жавобни далил билан айтиш.</td></tr>
+    <tr><td>2 дақ.</td><td>Мавзу, мақсад ва муваффақият мезонларини эълон қилиш.</td><td>Ўқувчилар дарс мақсадини айтади.</td></tr>
+    <tr><td>6 дақ.</td><td>Янги сўзлар: sport, players, team, net, Sports Day; «Акс-садо» ўйини.</td><td>Талаффуз ва иштирокни кузатиш.</td></tr>
+    <tr><td>7 дақ.</td><td>Матнни ўқиш ва бўш жойларни тўлдириш; жуфтликда текшириш.</td><td>4 та сўзни мазмунга кўра танлайди.</td></tr>
+    <tr><td>6 дақ.</td><td>Ўқув китобидаги саволлар асосида жуфтликда суҳбат.</td><td>Савол беради ва гап қолиплари билан жавоб беради.</td></tr>
+    <tr><td>2 дақ.</td><td>«Coach says» ҳаракатли танаффуси.</td><td>Хавфсизликка амал қилиб иштирок этади.</td></tr>
+    <tr><td>10 дақ.</td><td>«My Favourite Sport» постерини тайёрлаш ва синфга тақдим қилиш.</td><td>3–4 та тушунарли гап ёзади ва тақдим этади.</td></tr>
+    <tr><td>5 дақ.</td><td>5 босқичли рефлексия, натижалар фоизини кўриш ва уй вазифаси.</td><td>Ўзини баҳолайди.</td></tr>
+  </tbody></table>
+  <h3>Табақалаштириш ва қўллаб-қувватлаш</h3>
+  <ul><li>Ёрдам: сўзлар банки, гап бошланишлари ва жуфтликда ишлаш.</li><li>Қўшимча вазифа: <i>because</i> билан сабаб қўшиш ёки спорт анжомини яна биттага кўпайтириш.</li><li>Ўқувчи постерини оғзаки тақдим қилиши, тайёр қолипдан ўқиши ёки тўлдирилган шаблонни кўрсатиши мумкин.</li></ul>
+  <h3>Жиҳозлар ва хавфсизлик</h3><p>Дарслик, экран/интерактив доска, сўз карточкалари, қоғоз ва рангли қаламлар. Ҳаракатли танаффусда ҳаракатлар жойида бажарилади, парталар орасида югурилмайди.</p>
+  <p class="small">Ўқув мақсадларини фойдаланилаётган дарслик ва календарь-мавзу режасига мувофиқлаштиринг.</p>
+</aside></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const screens=[...document.querySelectorAll(".screen")],nav=document.getElementById("stageNav");
+let current=0,stars=0,timerSeconds=2700,timerHandle=null;
+screens.forEach((s,i)=>{const b=document.createElement("button");b.className="stagebtn";b.textContent=(i+1)+" · "+s.dataset.title;b.onclick=()=>go(i);nav.appendChild(b)});
+const navItems=[...nav.children];
+function go(i){current=Math.max(0,Math.min(screens.length-1,i));screens.forEach((s,n)=>s.classList.toggle("active",n===current));navItems.forEach((b,n)=>{b.classList.toggle("active",n===current);b.classList.toggle("done",n<current)});document.getElementById("progress").style.width=((current+1)/screens.length*100)+"%";document.getElementById("progressLabel").textContent=`Stage ${current+1} of ${screens.length}`;document.getElementById("stageTime").textContent=screens[current].dataset.title+" · "+screens[current].dataset.time;document.getElementById("prevBtn").disabled=current===0;document.getElementById("nextBtn").textContent=current===screens.length-1?"↺ Start again":"Next →";document.querySelector(".card").scrollIntoView({behavior:"smooth",block:"start"})}
+document.getElementById("prevBtn").onclick=()=>go(current-1);document.getElementById("nextBtn").onclick=()=>go(current===screens.length-1?0:current+1);
+document.querySelectorAll(".flash").forEach(b=>b.onclick=()=>b.classList.toggle("flipped"));
+document.getElementById("mixWords").onclick=()=>{document.querySelectorAll(".flash").forEach(b=>b.classList.remove("flipped"));toast("All cards are closed. Flip them again!")};
+const ro=document.getElementById("riddleOptions");
+["volleyball","football","tennis"].forEach(v=>{const b=document.createElement("button");b.className="choice";b.textContent=v;b.onclick=()=>{ro.querySelectorAll("button").forEach(x=>x.classList.remove("correct","wrong"));if(v==="volleyball"){b.classList.add("correct");document.getElementById("riddleFeedback").innerHTML='<span class="good">Great! Six players + a net → volleyball! 🏐</span>';addStar()}else{b.classList.add("wrong");document.getElementById("riddleFeedback").innerHTML='<span class="bad">Try again. Look for the clues: six players and a net.</span>'}};ro.appendChild(b)});
+document.getElementById("checkText").onclick=()=>{const fs=[...document.querySelectorAll(".answer")];let score=0;fs.forEach(x=>{x.classList.remove("correct","wrong");if(x.value===x.dataset.answer){score++;x.classList.add("correct")}else x.classList.add("wrong")});const f=document.getElementById("textFeedback");f.className="feedback "+(score===4?"good":"bad");f.textContent=score===4?"4 out of 4 — fantastic! Now read the whole text aloud. 🎉":`${score} out of 4 are correct. Check the red gaps and try again.`;if(score===4)addStar()};
+document.getElementById("resetText").onclick=()=>{document.querySelectorAll(".answer").forEach(x=>{x.value="";x.classList.remove("correct","wrong")});document.getElementById("textFeedback").textContent=""};
+document.getElementById("pairPoint").onclick=()=>{stars++;document.getElementById("pairScore").textContent="Team stars: "+stars+" ⭐";toast("Well done! You practised speaking English.")};
+const coach=["Coach says: jump two times! 🐇","Touch your shoulders! 🙆","Coach says: clap your hands! 👏","Turn around! 🌀","Coach says: stretch up high! 🙌","Sit down! 🪑","Coach says: march on the spot! 🥁"];let ci=0;document.getElementById("nextCoach").onclick=()=>{ci=(ci+1)%coach.length;document.getElementById("coachPrompt").textContent=coach[ci]};
+const emojis={volleyball:"🏐",football:"⚽",basketball:"🏀",tennis:"🎾",swimming:"🏊",hockey:"🏒"};
+function updatePoster(){const name=document.getElementById("studentName").value.trim()||"__________";const sport=document.getElementById("sportName").value;document.getElementById("posterBy").textContent="by "+name;document.getElementById("posterSport").textContent=sport;document.getElementById("sportEmoji").textContent=emojis[sport]||"🏅";document.getElementById("posterPlayers").textContent=document.getElementById("playerCount").value.trim()||"six";document.getElementById("posterGear").textContent=document.getElementById("equipment").value.trim()||"a ball and a net"}
+["studentName","sportName","playerCount","equipment"].forEach(id=>document.getElementById(id).addEventListener("input",updatePoster));
+document.getElementById("printPoster").onclick=()=>{updatePoster();document.body.classList.add("printing");window.print();setTimeout(()=>document.body.classList.remove("printing"),500)};
+document.getElementById("presentPoster").onclick=()=>toast("Say: Hello! My favourite sport is… 🌟");
+const labels=["I understood everything and can speak on my own.","I understood well; I need a little more practice.","I understood some parts; I need a little help.","I need more practice.","I’m still finding it difficult. Please explain again."];
+const votes=[0,0,0,0,0],results=document.getElementById("results");
+function renderVotes(){const total=votes.reduce((a,b)=>a+b,0);document.getElementById("totalVotes").textContent="Total votes: "+total;results.innerHTML="";document.querySelectorAll(".refbtn").forEach((b,i)=>{const pct=total?Math.round(votes[i]/total*100):0;const count=b.querySelector(".vote-count");count.textContent=votes[i]+" votes";const row=document.createElement("div");row.className="resultrow";row.innerHTML=`<span>${i+1}. ${labels[i]}</span><div class="resultbar"><span style="width:${pct}%"></span></div><span class="resultpct">${pct}%</span>`;results.appendChild(row)})}
+document.querySelectorAll(".refbtn").forEach((b,i)=>b.onclick=()=>{votes[i]++;renderVotes();b.classList.add("selected");toast("Vote counted!")});
+document.getElementById("resetVotes").onclick=()=>{votes.fill(0);document.querySelectorAll(".refbtn").forEach(b=>b.classList.remove("selected"));renderVotes();toast("Votes have been reset.")};renderVotes();
+document.getElementById("planBtn").onclick=()=>document.getElementById("drawer").classList.add("open");document.getElementById("closePlan").onclick=()=>document.getElementById("drawer").classList.remove("open");document.getElementById("drawer").onclick=e=>{if(e.target.id==="drawer")e.currentTarget.classList.remove("open")};
+document.getElementById("fullBtn").onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
+document.getElementById("timerBtn").onclick=()=>{if(timerHandle){clearInterval(timerHandle);timerHandle=null;document.getElementById("timerBtn").title="Resume timer";return}timerHandle=setInterval(()=>{timerSeconds=Math.max(0,timerSeconds-1);const m=String(Math.floor(timerSeconds/60)).padStart(2,"0"),s=String(timerSeconds%60).padStart(2,"0");document.getElementById("timerText").textContent=m+":"+s;if(!timerSeconds){clearInterval(timerHandle);timerHandle=null;toast("The lesson time is up! 👏")}},1000);document.getElementById("timerBtn").title="Pause timer"};
+function addStar(){stars++;toast("A star for your team! ⭐")}
+let toastTimer;function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2400)}
+go(0);
+</script>
+</body>
+</html>
